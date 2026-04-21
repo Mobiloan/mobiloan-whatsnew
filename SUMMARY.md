@@ -7,6 +7,10 @@
 * [4.77.00 - Default Payday and Tracking Modification](latest/4.77.00-default-payday-and-tracking-modification.md)
 * [4.76.00 - Email Notification Routing in Company Setup](latest/4.76.00-email-notification-routing-in-company-setup.md)
 
+## App Version 4.7
+
+* [4.73 — Promissory Notes, Late Settlement & Bureau Accuracy](app-version-4.7/4.73.md)
+
 ## Past updates
 
 * [4.74.6 - Evaluation Rights for Digital Bank Statements](past-updates/4.74.6-evaluation-rights-for-digital-bank-statements.md)
@@ -15,27 +19,10 @@
 * [4.74.3 - Asset Register](past-updates/4.74.3-asset-register.md)
 * [4.74.2 - Payroll Module Enhancements](past-updates/4.74.2-payroll-module-enhancements.md)
 * [4.74.1 - Variable Amplifin Promissory Note Client Fee Percentage](past-updates/4.74.1-variable-amplifin-promissory-note-client-fee-percentage.md)
-* [4.73.17 - Promissory Note Signature Capture](past-updates/4.73.17-promissory-note-signature-capture.md)
-* [4.73.16 - Evaluation Previous Signature Comparison](past-updates/4.73.16-evaluation-previous-signature-comparison.md)
-* [4.73.15 - Share and Export Commission Payout Loans Table](past-updates/4.73.15-share-and-export-commission-payout-loans-table.md)
-* [4.73.14 - Section 129 Notice Improvements](past-updates/4.73.14-section-129-notice-improvements.md)
-* [4.73.13 - Setup - Additional New Loan Restrictions](past-updates/4.73.13-setup-additional-new-loan-restrictions.md)
-* [4.73.12 - Minimum Expense Values for Categories](past-updates/4.73.12-minimum-expense-values-for-categories.md)
-* [4.73.11 - Credit Check Approved dispute reasons - Catgeory Setup](past-updates/4.73.11-credit-check-approved-dispute-reasons-catgeory-setup.md)
-* [4.73.10 - Addititonal Client Hold Statuses](past-updates/4.73.10-addititonal-client-hold-statuses.md)
-* [4.73.9 - Late Settlement Fees](past-updates/4.73.9-late-settlement-fees.md)
-* [4.73.8- Enhanced Role-Based Access Control for Advanced Reporting](past-updates/4.73.8-enhanced-role-based-access-control-for-advanced-reporting.md)
-* [4.73.7 -Dynamic Login Audit Log Management](past-updates/4.73.7-dynamic-login-audit-log-management.md)
 * [4.72.06 - FIC Compliance Updates](past-updates/4.72.06-fic-compliance-updates.md)
 * [4.72.05 - Report Synchronization via Google Sheets™️](past-updates/4.72.05-report-synchronization-via-google-sheets-tm.md)
 * [4.72.04 - Bad Debt Reporting Filters](past-updates/4.72.04-bad-debt-reporting-filters.md)
-* [4.73.02 - Email Bank Statement Verification](past-updates/4.73.02-email-bank-statement-verification.md)
-* [4.73.01 - Refund Via Amplifin™️Wallet & EFT](past-updates/4.73.01-refund-via-amplifin-tm-wallet-and-eft.md)
 * [4.72.01 Enhanced Groups R-US Insurance Integration](past-updates/4.72.01-enhanced-groups-r-us-insurance-integration.md)
-
-***
-
-* [4.73.61 - Automatic Inclusion of Active Installments in Bureau Accounts Expense](4.73.61-automatic-inclusion-of-active-installments-in-bureau-accounts-expense.md)
 
 ## Archived updates
 
