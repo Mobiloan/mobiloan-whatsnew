@@ -1,7 +1,5 @@
 # Table of contents
 
-* [What's New](README.md)
-
 ## App Version 4.8
 
 * [4.84 Release notes](app-version-4.8/4.84.md)
