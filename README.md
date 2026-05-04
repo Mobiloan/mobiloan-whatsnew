@@ -1,5 +1,104 @@
 # 4.84 Release notes
 
+## 4.84.20 - Stability, Security & Performance Enhancements
+
+_Released: 04 May 2026_
+
+### 🚀 New Features
+
+#### 1. Loan Cancellation — More Reliable Processing
+
+**What changed:** The loan cancellation process has been rebuilt to use the `Journey v4 batch API` instead of the older app-side `OnlineDB.Batch()` approach.
+
+All related records — collection tickets, contra transactions, the Grouprus insurance record, loan transaction rows, and any refund transaction — are now assembled into a single request sent directly to the server. The loan itself is only marked as cancelled after the server confirms that all related records were updated successfully.
+
+If any individual record update fails, subsequent updates are stopped and the loan is not marked as cancelled, leaving the loan in its pre-cancellation state.
+
+{% hint style="info" %}
+**Why it matters:**
+
+* Previously, the loan could be marked as cancelled even if related record updates encountered problems, because the loan save and the batch execute were independent sequential operations.
+* The loan is now only cancelled once the server has confirmed all related updates succeeded.
+* Users will notice a brief server-side processing step before the final loan update completes. This is normal and expected.
+
+**Who is affected:** Any agent performing a loan cancellation, reversal, or write-off of a paid-out loan.
+{% endhint %}
+
+#### 2. Security — Encrypted Credentials Across Integrations
+
+**What changed:** Sensitive API tokens and passwords stored in the `config` record are now decrypted at the point of use rather than read as plain text. This affects:
+
+* **Gathr** — `gathr_auth_token` and `gathr_tenant` are now read from the `config` DB record (decrypted) rather than passed as task parameters. Gathr AVS and bank statement webhook flows both use this.
+* **Sudonum SMS** — `sudonum_auth_token` is now decrypted before use in the write-off scheduler SMS flow.
+* **Loan Product API** — `loan_product_api_pwd` is now decrypted when validating incoming API credentials.
+
+{% hint style="info" %}
+**Why it matters:** Credentials are no longer visible in plain text in the database or in task logs. This closes an existing security gap.
+
+**Who is affected:** System administrators who configure credentials in the `config` record — no change in how you set them up, but they must be stored encrypted going forward.
+{% endhint %}
+
+#### 3. Allps GUID Scheduler — Improved Error Handling
+
+**What changed:** The Allps GUID scheduler now explicitly throws an error if the Allps API returns anything other than a `reply_cd` of `207` (success). Previously, a failed GUID creation would continue silently, leaving the Allps record without a valid GUID.
+
+{% hint style="info" %}
+**Why it matters:** GUID failures are now surfaced immediately in CloudCode logs and will trigger the scheduler's existing retry/reschedule logic rather than being silently swallowed.
+
+**Who is affected:** Lenders using Allps payment integration. Allps admin users who monitor the GUID scheduler task logs.
+{% endhint %}
+
+#### 4. Allps API — Keep-Alive Connection Header
+
+**What changed:** All Allps SOAP API calls now include a `Connection: keep-alive` header.
+
+{% hint style="info" %}
+**Why it matters:** Reduces connection overhead on high-frequency Allps calls (e.g., payment allocation batch runs and GUID scheduling), improving throughput and reducing timeout-related failures.
+{% endhint %}
+
+#### 5. Config Detail — Navigation Refresh Fixed
+
+**What changed:** When a user navigates from the main menu into the Configuration screen and then returns, the global configuration screem is now properly reloaded on the main menu. Previously the stale config values remained active until the next full app reload.
+
+{% hint style="info" %}
+**Why it matters:** Config changes take effect immediately on return without needing to log out and back in.
+
+**Who is affected:** Administrators and managers who make config changes during a session.
+{% endhint %}
+
+#### 6. Audit Log — Date and Array Comparison Accuracy
+
+**What changed:**
+
+* Date fields are now compared using a normalised `yyyymmdd` format, so cosmetic differences in how a date is represented no longer create spurious audit log entries.
+* Array fields are now handled correctly — the sorted, filtered value is returned for comparison instead of falling through to unrelated checks.
+* The `date_created` field filter has been removed; changes to `date_created` are now captured in the audit log.
+
+{% hint style="info" %}
+**Why it matters:** Audit logs are more accurate — fewer false-positive change entries, and previously untracked `date_created` changes are now visible.
+{% endhint %}
+
+#### 7. Removed: QR Image Decoder and S3 Temp Services
+
+**What changed:** Two CloudCode services have been removed:
+
+* `qr_image_decoder` — QR code image decoding service
+* `s3_temp` — Temporary S3 utility service
+
+{% hint style="info" %}
+**Why it matters:** These services were legacy/scratch utilities no longer in active use. Their removal reduces the CloudCode surface area and build time.
+{% endhint %}
+
+***
+
+#### 8. Tools Menu — Label Update
+
+**What changed:** The "Affordability Assessment" button in the Tools menu has been relabelled to **"Affordability"** to fit the button grid layout more cleanly.
+
+**Who is affected:** All users with access to the Tools menu.
+
+***
+
 ## 4.84.10 – WhatsApp Support Ticketing
 
 _Released: TBD_
@@ -61,4 +160,4 @@ Insurance Payment allocation in Mobiloan is now fully automated. When a new loan
 
 This runs only at loan creation (with an overnight retry for same-day loans if needed). It is not triggered manually.
 
-⚠️ Automation requires the branch to have the relevant loan insurance product enabled.&#x20;
+⚠️ Automation requires the branch to have the relevant loan insurance product enabled.
