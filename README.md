@@ -1,5 +1,52 @@
 # 4.84 Release notes
 
+## 4.84.30 - Collections Simplification & Compliance Tracking
+
+### 🚀 New Features
+
+#### Simpler Collection Tickets (One Per Loan)
+
+Collection tickets have moved from a per-instalment model to a single, consolidated ticket per active loan.
+
+*   **How it Works -** Instead of a separate ticket for every instalment (e.g., 12 tickets for a 12-month loan), there is now only **one active ticket displaying the total outstanding balance**.
+
+    The ticket updates automatically as payments are received and closes automatically once the loan is fully paid and previously suspended tickets will reactivate correctly based on the current balance.
+* **The Impact** - Collection staff will see a much cleaner, single-line view per loan rather than a cluttered list of per-instalment entries. This makes prioritizing accounts significantly easier.
+* **What to Watch For** -  Fewer Tickets: A massive reduction in overall ticket counts across your branch is completely expected due to this consolidation. If a loan has no ticket, verify if the balance is already fully settled.
+* **Action Item for Teams -** Brief your staff immediately: They must know that tickets now reflect the total outstanding loan balance, not a single instalment amount.&#x20;
+
+***
+
+#### Debit Date Alignment Audit Trail
+
+The system now automatically tracks who adjusted SASSA or debit dates on a promissory note and when the change occurred.
+
+*   **How it Works** -  The "Debit dates adjusted" row in the **Promissory User Actions dialog** now explicitly displays the operator's name and a timestamp.
+
+    Tapping this row opens a detailed, instalment-by-instalment breakdown of the alignment result, including tracking and failure statuses. To access this- select the "**Promissory Menu"** primary button in the **'Allps Promissory'** screen and select the "**User Actions"** option from the menu that appears.
+* **The Impact** - Branch managers and supervisors get instant, self-service audit visibility.
+* **Action Item for Teams -** Inform supervisors and compliance staff: Let them know they can now tap this row for a deep-dive breakdown. Note that the actual process of making date adjustments remains exactly the same.
+
+***
+
+#### FIC KYC Due Date Reminder Notifications
+
+For users with FIC KYC compliance enabled, branch managers can now receive **automated proactive reminders** before a client's KYC review lapses.
+
+* **How it Works** - Reminders are calculated based on the client's current FIC risk level and your system's Risk Relevance Rules. To prevent notification fatigue, the system will send a maximum of one reminder per client, per calendar month.
+* **What to Watch For / How to Enable** - Off by Default: This feature is strictly optional and turned off by default. - To activate it, an administrator must navigate to Config → FIC → FIC KYC Due Reminders, toggle it on, and select a preferred reminder lead window (options include 1, 30, 90, 120, 180, or 360 days before the due date).
+* **Action Item for Teams** - Because notifications are sent directly to the assigned branch manager of the client's home branch, administrators must ensure that all branch manager assignments are accurately mapped in the system.
+
+***
+
+### 🛠️ Fixed Issues
+
+* Collections: Consolidated multi-ticket loans into a single ticket reflecting the true balance and fixed reactivation of suspended tickets.
+* Auditing: Enabled operator name and timestamp logging for promissory debit date adjustments.
+* Allps Sessions: Added a validation step before storing session references, significantly reducing intermittent Allps session failures.
+
+***
+
 ## 4.84.20 - Stability, Security & Performance Enhancements
 
 _Released: 04 May 2026_
