@@ -1,5 +1,74 @@
 # 4.84 Release notes
 
+
+## 4.84.01 – Compliance, Payroll & Reliability Improvements
+
+_Released: 2026-05-22_
+
+This release introduces a payroll remittance receipt delay setting on employer records, giving each payroll employer its own configurable timeline so collection due dates align with when funds actually arrive. FIC due diligence geography scoring has been updated to reflect the February 2026 FATF blacklist and greylist designations, replacing the previous static country list. The letter of demand now uses a generic template that populates your branch banking details and operator signature automatically, and client merges can now be performed by ID number rather than client number, removing a blocker for clients captured without one. Also included are improvements to the SQL report editor, address branch defaulting, FIC screening result display, AllPS orphan mandate handling, and email address verification reliability.
+
+### 🚀 New Features
+
+#### Payroll Employer — Remittance Receipt Delay Setting
+
+**What changed:** A new **Payroll Remittance Receipt Delay (days)** field is now required when setting up or editing a payroll-registered employer. This tells the system how many days after the payroll run the remittance funds are expected in your account.
+
+{% hint style="info" %}
+**Why it matters:** Collection due dates for payroll deductions are now calculated using each employer's specific remittance timeline, rather than a default assumption. This reduces premature collection attempts before funds have arrived.
+
+**Who is affected:** Setup administrators adding or editing payroll employers. The field accepts values between 1 and 30 days and is required when the employer is marked as a payroll employer.
+{% endhint %}
+
+---
+
+#### FIC Due Diligence — Updated International Risk Scoring
+
+**What changed:** The FIC (Financial Intelligence Centre) due diligence screen now applies the **February 2026 FATF (Financial Action Task Force) lists** when assessing a client's country of origin risk. Clients from FATF blacklisted jurisdictions (currently North Korea, Iran, and Myanmar) are scored at the highest risk tier automatically. Clients from FATF greylisted jurisdictions (currently Angola, Namibia, Kenya, and the Democratic Republic of the Congo) are scored at an elevated risk tier.
+
+{% hint style="info" %}
+**Why it matters:** FIC compliance requires that risk scoring reflect current international sanctions and monitoring lists. This update removes the reliance on a static internal list and aligns scoring directly with published FATF designations.
+
+**Who is affected:** Branch staff and compliance officers who run FIC KYC due diligence on clients. Clients from affected countries will show a higher geography risk score than before — this is expected and correct.
+{% endhint %}
+
+---
+
+#### Letter of Demand — New Generic Template
+
+**What changed:** The letter of demand generated from the Legal Collection screen now uses a modernised generic template that automatically populates your branch’s banking details, company contact information, and operator signature (where one is on file).
+
+{% hint style="info" %}
+**Why it matters:** The previous template was tied to a specific legal partner integration. The new template works for all branches regardless of legal collection configuration, and produces a cleaner, more professional document.
+
+**Who is affected:** Any user who generates a letter of demand from the Legal Collection screen. The document layout has changed — the content (client name, outstanding balance, due date, loan reference) remains the same.
+{% endhint %}
+
+---
+
+#### Client Merge — Search by ID Number
+
+**What changed:** When merging duplicate client records, you can now search for the duplicate using the client’s **ID number** instead of their client number. This makes it possible to merge clients who were captured without a client number assigned.
+
+{% hint style="info" %}
+**Why it matters:** Duplicate clients are often captured before a client number is assigned. Previously this blocked the merge process. The ID number search removes that barrier.
+
+**Who is affected:** Branch administrators and managers who perform client record merges.
+{% endhint %}
+
+---
+
+### 🛠️ Improvements & Fixes
+
+* **SQL Report Editor** — The purchased report edit dialog now auto-formats SQL for readability when you open it, and the dialog closes automatically after saving. Protected system reports (numbered 200–299) can only be deleted by a master login user.
+* **Address Detail** — When capturing or editing a client address, the branch defaults to the client’s assigned branch rather than the logged-in operator’s branch. This ensures address records are associated with the correct branch, particularly when agents assist clients from other branches.
+* **FIC KYC Screening Display** — The XDS standard and premium sanctions screening results now only show a warning banner when an actual match is found. Previously, completing the screening without a match also surfaced an unnecessary warning.
+* **AllPS Orphan Mandate Handling** — When an ALLPS debit mandate arrives for a loan that has already been cancelled or written off, the system now automatically cancels the mandate and sends an alert to the branch. A log entry is recorded on the loan for audit purposes.
+* **Email Address Verification** — The email verification service now uses a dual-provider setup with automatic failover, improving reliability. If the primary provider is unreachable, a second provider is tried automatically. If both are unavailable, the check completes with an “Unknown” result rather than blocking the user.
+* **Biometric Image Processing** — Improved handling of BMP-format biometric and signature images, resolving cases where certain image formats failed to convert and produced an error.
+* **Loan Product Configuration** — Administrators can now set a maximum instalment period on individual loan products, restricting the term options available at origination.
+
+***
+
 ## 4.84.30 - Collections Simplification & Compliance Tracking
 
 ### 🚀 New Features
