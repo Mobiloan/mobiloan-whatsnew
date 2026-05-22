@@ -1,6 +1,5 @@
 # 4.84 Release notes
 
-
 ## 4.84.01 – Compliance, Payroll & Reliability Improvements
 
 _Released: 2026-05-22_
@@ -19,7 +18,7 @@ This release introduces a payroll remittance receipt delay setting on employer r
 **Who is affected:** Setup administrators adding or editing payroll employers. The field accepts values between 1 and 30 days and is required when the employer is marked as a payroll employer.
 {% endhint %}
 
----
+***
 
 #### FIC Due Diligence — Updated International Risk Scoring
 
@@ -31,7 +30,7 @@ This release introduces a payroll remittance receipt delay setting on employer r
 **Who is affected:** Branch staff and compliance officers who run FIC KYC due diligence on clients. Clients from affected countries will show a higher geography risk score than before — this is expected and correct.
 {% endhint %}
 
----
+***
 
 #### Letter of Demand — New Generic Template
 
@@ -43,7 +42,7 @@ This release introduces a payroll remittance receipt delay setting on employer r
 **Who is affected:** Any user who generates a letter of demand from the Legal Collection screen. The document layout has changed — the content (client name, outstanding balance, due date, loan reference) remains the same.
 {% endhint %}
 
----
+***
 
 #### Client Merge — Search by ID Number
 
@@ -55,7 +54,7 @@ This release introduces a payroll remittance receipt delay setting on employer r
 **Who is affected:** Branch administrators and managers who perform client record merges.
 {% endhint %}
 
----
+***
 
 ### 🛠️ Improvements & Fixes
 
@@ -69,7 +68,7 @@ This release introduces a payroll remittance receipt delay setting on employer r
 
 ***
 
-## 4.84.30 - Collections Simplification & Compliance Tracking
+## 4.84.00 - Collections Simplification & Compliance Tracking
 
 ### 🚀 New Features
 
@@ -81,8 +80,8 @@ Collection tickets have moved from a per-instalment model to a single, consolida
 
     The ticket updates automatically as payments are received and closes automatically once the loan is fully paid and previously suspended tickets will reactivate correctly based on the current balance.
 * **The Impact** - Collection staff will see a much cleaner, single-line view per loan rather than a cluttered list of per-instalment entries. This makes prioritizing accounts significantly easier.
-* **What to Watch For** -  Fewer Tickets: A massive reduction in overall ticket counts across your branch is completely expected due to this consolidation. If a loan has no ticket, verify if the balance is already fully settled.
-* **Action Item for Teams -** Brief your staff immediately: They must know that tickets now reflect the total outstanding loan balance, not a single instalment amount.&#x20;
+* **What to Watch For** - Fewer Tickets: A massive reduction in overall ticket counts across your branch is completely expected due to this consolidation. If a loan has no ticket, verify if the balance is already fully settled.
+* **Action Item for Teams -** Brief your staff immediately: They must know that tickets now reflect the total outstanding loan balance, not a single instalment amount.
 
 ***
 
@@ -90,7 +89,7 @@ Collection tickets have moved from a per-instalment model to a single, consolida
 
 The system now automatically tracks who adjusted SASSA or debit dates on a promissory note and when the change occurred.
 
-*   **How it Works** -  The "Debit dates adjusted" row in the **Promissory User Actions dialog** now explicitly displays the operator's name and a timestamp.
+*   **How it Works** - The "Debit dates adjusted" row in the **Promissory User Actions dialog** now explicitly displays the operator's name and a timestamp.
 
     Tapping this row opens a detailed, instalment-by-instalment breakdown of the alignment result, including tracking and failure statuses. To access this- select the "**Promissory Menu"** primary button in the **'Allps Promissory'** screen and select the "**User Actions"** option from the menu that appears.
 * **The Impact** - Branch managers and supervisors get instant, self-service audit visibility.
@@ -116,7 +115,7 @@ For users with FIC KYC compliance enabled, branch managers can now receive **aut
 
 ***
 
-## 4.84.20 - Stability, Security & Performance Enhancements
+## 4.84.00 - Stability, Security & Performance Enhancements
 
 _Released: 04 May 2026_
 
@@ -215,7 +214,7 @@ If any individual record update fails, subsequent updates are stopped and the lo
 
 ***
 
-## 4.84.10 – WhatsApp Support Ticketing
+## 4.84.00 – WhatsApp Support Ticketing
 
 _Released: TBD_
 
