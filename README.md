@@ -1,5 +1,23 @@
 # 4.84 Release notes
 
+## 4.84.04 – Payout Deductions Accuracy & SASSA First Date Display
+
+_Released: 2026-06-15_
+
+4.84.04 corrects two issues on the payout and promissory screens. The Payout Action screen now loads all pending payout deductions for a client rather than drawing from the last ten ledger transactions — clients with six or more early-settlement deductions were seeing a non-zero net payout amount when the correct figure should have been R0.00. On SASSA SEFT and PREC promissory and AllPS summary screens, the first instalment and first debit date fields now display the real SASSA action date for the client's grant category (old age, disability, or all-pay) instead of the raw grant-type indicator stored by the payment system.
+
+### 🛠️ Improvements & Fixes
+
+#### Payout Action — All Pending Deductions Shown Correctly
+
+The Payout Action screen now loads **all pending payout deductions** for a client, regardless of how many there are. Previously, the payout deduction list was drawn from the last ten ledger transactions, which meant that clients with six or more early-settlement deductions could see an incorrect net payout amount — showing an outstanding balance when the actual net payout should have been R0.00. The deduction total is now fetched via a dedicated query that is not subject to this limit. The corrected calculation applies the next time the Payout Action screen is opened for an affected client.
+
+#### SASSA Promissory Screens — Correct First Date Display
+
+On promissory and AllPS summary screens for **SASSA SEFT** and **PREC** loan types, the **first instalment** and **first debit** date fields now display the real SASSA action date for the client's grant category, rather than the raw grant-type indicator stored by the payment system. Old age grant clients (grant day 10), disability grant clients (grant day 12), and all-pay grant clients (grant day 14) will now see the correct calendar date on which SASSA will action their first deduction.
+
+---
+
 ## 4.84.03 – Origination Controls, Insurance Accuracy & Document Improvements
 
 _Released: 2026-06-14_
