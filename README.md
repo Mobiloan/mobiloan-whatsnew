@@ -1,5 +1,77 @@
 # 4.84 Release notes
 
+## 4.84.03 – Origination Controls, Insurance Accuracy & Document Improvements
+
+_Released: 2026-06-14_
+
+This release introduces **Next Loan Options** — per-client origination control flags that let branch staff specify which checks must be re-confirmed or re-run the next time a specific client applies for a loan, without affecting any other clients. The seven-language NCA terms and conditions viewer (Loan Agreement, Income Declaration, and Settlement Letter T&Cs in English, Afrikaans, Zulu, Xhosa, Sotho, Tsonga, and Tswana) is now available to users with tool right 10 from the main menu. Credit life insurance on short-term transaction products now uses the same daily rate methodology as loan interest, device enrollment links no longer show a 1970 expiry date, and the Client Ledger instalment date column now shows the correct schedule date for each receipt rather than the capture date. Also included are GuardRisk contract PDF layout improvements, lifetime premium columns for UnitySure insurance reporting, corrected payer and repayer recording on future-dated AllPS payouts, and reliability improvements to SMS batch delivery.
+
+### 🚀 New Features
+
+#### Next Loan Options — Per-Client Origination Controls
+
+**What changed:** A new **Next loan** button is now available on the Client Menu for returning clients. Branch staff can select from a checklist of checks to enforce the next time that specific client goes through origination — for example, forcing a fresh credit bureau enquiry, requiring confirmation of personal or employment details, blocking agent commission, or flagging that all documents must be recaptured. The button shows how many options are active and displays in the caution colour when any are set.
+
+{% hint style="info" %}
+**Why it matters:** Some clients need additional scrutiny on their next application — due to recent changes in their circumstances, a compliance requirement, or a branch policy decision. This feature lets you flag those requirements once; the system enforces them automatically during origination without impacting every other client.
+
+**Who is affected:** Branch operators with client maintenance rights. The Next Loan button appears on the Client Menu for repeat-loan clients. Options clear automatically once the corresponding origination step is completed.
+{% endhint %}
+
+---
+
+#### NCA Document T&C Translations — 7-Language Viewer
+
+**What changed:** A new **Document Translations** tool is now available to users with tool right 10. It provides a read-only viewer for the legally required NCA terms and conditions documents — Loan Agreement T&Cs, Income Declaration T&Cs, and Settlement Letter T&Cs — in all seven scheduled South African languages: English, Afrikaans, Zulu, Xhosa, Sotho, Tsonga, and Tswana.
+
+{% hint style="info" %}
+**Why it matters:** The National Credit Act requires that clients can access these documents in their preferred official language. The viewer provides a compliant, shareable format for all three document types in all seven languages without requiring separate document storage or external translation services.
+
+**Who is affected:** Branch staff and compliance administrators with tool right 10. The viewer is accessible from the main menu and generates a formatted HTML document that can be shared or printed.
+{% endhint %}
+
+---
+
+### 🛠️ Improvements & Fixes
+
+#### Credit Life Calculation — Short-Term Products
+
+The credit life insurance amount on **short-term transaction** loan products is now calculated using the same daily rate method as loan interest: the monthly rate is divided by 30 and multiplied by the number of days in the period. This corrects a discrepancy where loan interest and credit life were using different daily-rate methodologies on the same product type. Existing booked loans are not affected — the change applies to new quotations and new loans only. The Repayment Schedule screen now also shows the product's nominal interest, credit life, and VAT rates directly in the column headings rather than back-calculating them.
+
+#### Device Enrollment Links — Correct Expiry Date
+
+Device enrollment links generated from **Maintenance → Devices** now carry the correct expiry date and time in your local time zone. Previously, links were being created with an expiry date of 1 January 1970, causing them to appear expired immediately. Links created after this update will show the correct expiry on the Enrollment Info screen. Any links created before this fix should be regenerated.
+
+#### Client Ledger — Correct Instalment Dates
+
+The **Inst Date** column in the Client Ledger Transactions screen now shows the repayment schedule instalment date that each receipt belongs to, instead of the date the receipt was captured. This makes it straightforward to match payments against the repayment schedule. Historical transactions are also corrected when you next open the Client Ledger for a given client.
+
+#### GuardRisk Insurance Contract PDF — Layout Fixes
+
+GuardRisk insurance contract PDFs generated at loan payout now display the Silo Underwriting Manager's FAIS categories in full without truncation, and the credit life and funeral assist schedule pages are more compact with fewer unnecessary page breaks. This affects clients with Loanfin-configured GuardRisk credit life or funeral products.
+
+#### UnitySure Insurance Reporting — Lifetime Premium Columns
+
+The UnitySure (Ezemali) insurance report now includes additional columns showing the total premiums collected over the lifetime of each policy, alongside the existing in-period collection column. This gives UnitySure and branch administrators a complete view of payment history per client for reconciliation purposes.
+
+#### Future Loan Payer & Repayer Recording
+
+When a future-dated loan is paid out via AllPS, the system now correctly records both the **payer** (the operator who submitted the payout) and the **repayer** (the operator who confirmed the payment once AllPS processed it). The same operator can now be recorded as both payer and repayer when a single operator handles both steps.
+
+#### Support Device Improvements
+
+Support devices can now switch to a different company or application without receiving an enrollment email and without requiring re-login. This improves the support workflow when assisting clients across multiple instances.
+
+#### AllPS UID Cross-Instance Validation
+
+A daily validation run now checks stored AllPS GUIDs across system instances at 06:00 SAST, detecting and correcting any GUIDs that may have become stale or mismatched. This runs automatically in the background and does not affect normal AllPS operations.
+
+#### SMS Delivery Reliability
+
+SMS sending through Sudonum now applies rate limiting and retry logic, preventing batch SMS operations from triggering 429 (too-many-requests) errors from the SMS gateway. Batch SMS jobs are staggered automatically to stay within provider limits.
+
+---
+
 ## 4.84.01 – Compliance, Payroll & Reliability Improvements
 
 _Released: 2026-05-22_
