@@ -1,5 +1,69 @@
 # 4.84 Release notes
 
+## 4.84.05 – In-App Support, BI Reporting & Compliance Automation
+
+_Released: TBD_
+
+4.84.05 is a consolidated release covering everything shipped since early June 2026. Its headline additions are an in-app **Report an issue** button and **Trust Center** (legal, help and support in one place), a reorganised **Reporting** menu with a new **BI dashboard** and pivot charts, and optional automated **sanctions (TFS) bulk screening**. It also adds per-client **Next Loan Options** and a full **employer profile** (contacts and documents), and fixes a range of origination, payout, commission, reporting and collections issues — most notably a **Government Pension affordability** block and **stale FIC alerts** after a client is corrected.
+
+### 🚀 New Features
+
+#### Report an issue, from any screen
+
+**What changed:** A floating **Report** button now appears on every screen after login. Tap it to send your name, branch and current screen to support, receive a **reference number**, and continue on a pre-filled WhatsApp message. The **Legal / Help / System Status / Shortcuts** menus (Trust Center) now open cleanly centred, and Company Credit Policies open in a scrollable in-app viewer.
+
+{% hint style="info" %}
+**Why it matters:** raising an issue no longer means leaving the app or copying screen details by hand — support gets the context automatically and you get a reference to follow up.
+
+**Who is affected:** all operators, agents and administrators.
+{% endhint %}
+
+#### Reporting reorganised, plus a BI dashboard
+
+**What changed:** The **Reporting** menu is now **Standard Reports**, **Advanced Reports** and a new **BI dashboard**. The BI dashboard adds auto-reloading filters (no refresh button), **SQL pivot charts** and a **Share-to-PDF** flow, and charts scale better on mobile.
+
+{% hint style="info" %}
+**Why it matters:** faster, clearer management reporting with charts you can share as PDF.
+
+**Who is affected:** all reporting users.
+{% endhint %}
+
+#### Automated sanctions (TFS) bulk screening
+
+**What changed:** An optional nightly **Targeted Financial Sanctions** screening (enable under **Config → FIC KYC**). When the sanctions list updates it re-screens all clients, applies a fraud hold and note to any match, emails a match summary, and produces a downloadable **Excel proof-of-screening report** with run history. Requires FIC enabled and a notification email.
+
+{% hint style="info" %}
+**Why it matters:** continuous, auditable sanctions compliance without a manual re-screen.
+
+**Who is affected:** administrators and compliance / back-office staff.
+{% endhint %}
+
+#### Next Loan Options and employer profiles
+
+**What changed:** Returning clients now show a **Next loan** button on the Client Menu to pre-set checks enforced on that client's next loan (force credit enquiry, confirm details, force AVS, block agent commission, recapture documents, and more), which clear automatically as each step is completed. Employer maintenance gains **Contacts** and **Documents** tabs, and you can upload employer documents while creating a new employer.
+
+{% hint style="info" %}
+**Why it matters:** targeted per-client controls and a complete employer record in one place.
+
+**Who is affected:** branch operators and administrators.
+{% endhint %}
+
+***
+
+### 🛠️ Improvements & Fixes
+
+* **Government Pension (GEPF) affordability:** entering both Pension Income and Bank Account Income no longer incorrectly blocks the loan; a related "Maximum Bank Income won't save" setup bug is fixed.
+* **Stale FIC alerts cleared:** after correcting client details and re-running a Low-Risk FIC/KYC, old "Management Sign Off Required" alerts are cleared instead of following the client onto every new loan.
+* **Commission payout ID-mismatch:** wallet/EFT commission payouts that failed with "3021 Client not found" now retry the AllPS lookup by ID number and succeed; a client who is also an agent no longer has their client number overwritten.
+* **"Sign Mandate" for future-dated loans:** future-dated loans enforce mandate signing at scheduling time with a clear enabled button; signing isn't re-enforced when the payout date arrives.
+* **Card terminals:** one AllPS profile can register multiple terminal serials; local USB mandate signing aligned with Amplifin's updated methods; clear "select a terminal" messaging.
+* **Reporting exports:** SQL-report Excel exports keep decimals and export fee columns as numbers (so `SUM()` works); report column labels now show in Settings; total rows work with month-label headers; Google Sheets sync adds weekly and monthly schedules; Profit & Loss shows the export dialog before the PDF.
+* **Collections & compliance:** close tickets as "Handed Over" (new role permission); a per-role limit on collection follow-up dates; Section 129 sends a default message when the template is disabled and can exclude chosen hold statuses.
+* **Setup & admin:** system transaction categories can no longer be renamed (prevents duplicates); role-based email addresses save with a confirm instead of a hard block; bulk employer edits no longer wipe occupation paydays; AllPS Wallet menus are rights-aware with a one-step Replace card.
+* **Fixes:** "Status of account" per-loan PDF (formerly "Loan statement"); correct Client Ledger instalment dates; all pending deductions shown on Payout Action; login broadcasts appear without an app restart; cancelled pre-payout loans no longer show as due; passport-client AVS/mandate; XDS thin-file report viewer; Annexure C PDF generation; large-database transaction cancellation; and more.
+
+---
+
 ## 4.84.04 – Payout Deductions Accuracy & SASSA First Date Display
 
 _Released: 2026-06-15_
