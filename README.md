@@ -2,7 +2,7 @@
 
 ## 4.84.05 – In-App Support, BI Reporting & Compliance Automation
 
-_Released: TBD_
+_Released: 13–14 July 2026_
 
 4.84.05 is a consolidated release covering everything shipped since early June 2026. Its headline additions are an in-app **Report an issue** button and **Trust Center** (legal, help and support in one place), a reorganised **Reporting** menu with a new **BI dashboard** and pivot charts, and optional automated **sanctions (TFS) bulk screening**. It also adds per-client **Next Loan Options** and a full **employer profile** (contacts and documents), and fixes a range of origination, payout, commission, reporting and collections issues — most notably a **Government Pension affordability** block and **stale FIC alerts** after a client is corrected.
 
