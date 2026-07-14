@@ -1,6 +1,6 @@
 # 4.84 Release notes
 
-## 4.84.05 – In-App Support, BI Reporting & Compliance Automation
+## 4.84.05 – In-App Issue Reporting, BI Reporting & Compliance Automation
 
 _Released: 13–14 July 2026_
 
@@ -8,14 +8,25 @@ _Released: 13–14 July 2026_
 
 ### 🚀 New Features
 
-#### Report an issue, from any screen
+#### Report an issue (Mobidesk)
 
-**What changed:** A floating **Report** button now appears on every screen after login. Tap it to send your name, branch and current screen to support, receive a **reference number**, and continue on a pre-filled WhatsApp message. The **Legal / Help / System Status / Shortcuts** menus (Trust Center) now open cleanly centred, and Company Credit Policies open in a scrollable in-app viewer.
+**What changed:** You can raise an in-app support report with automatic context (your name, branch, and current screen), get a reference number, and continue on a pre-filled WhatsApp message.
+
+**How to use it:**
+
+1. Open the menu → **Trust Center** → **Mobidesk**
+2. Tap **Submit new report**
+3. Optionally describe the problem → **Continue**
+4. Copy / use the reference number, then **Open WhatsApp** to finish with support
+
+After some server or network failures, Mobiloan may also offer **Report to Mobidesk** from the error prompt — that opens the same report flow.
+
+Note: There is **no floating Report button** on every screen. An earlier build briefly had a life-buoy button bottom-right; that always-on button was removed. Reporting is from Trust Center → Mobidesk (or from a failure prompt when offered).
 
 {% hint style="info" %}
-**Why it matters:** raising an issue no longer means leaving the app or copying screen details by hand — support gets the context automatically and you get a reference to follow up.
+**Why it matters:** Support gets screen context automatically, and you get a reference to follow up on WhatsApp.
 
-**Who is affected:** all operators, agents and administrators.
+**Who is affected:** All operators, agents and administrators.
 {% endhint %}
 
 #### Reporting reorganised, plus a BI dashboard
@@ -62,7 +73,7 @@ _Released: 13–14 July 2026_
 * **Setup & admin:** system transaction categories can no longer be renamed (prevents duplicates); role-based email addresses save with a confirm instead of a hard block; bulk employer edits no longer wipe occupation paydays; AllPS Wallet menus are rights-aware with a one-step Replace card.
 * **Fixes:** "Status of account" per-loan PDF (formerly "Loan statement"); correct Client Ledger instalment dates; all pending deductions shown on Payout Action; login broadcasts appear without an app restart; cancelled pre-payout loans no longer show as due; passport-client AVS/mandate; XDS thin-file report viewer; Annexure C PDF generation; large-database transaction cancellation; and more.
 
----
+***
 
 ## 4.84.04 – Payout Deductions Accuracy & SASSA First Date Display
 
@@ -80,13 +91,13 @@ The Payout Action screen now loads **all pending payout deductions** for a clien
 
 On promissory and AllPS summary screens for **SASSA SEFT** and **PREC** loan types, the **first instalment** and **first debit** date fields now display the real SASSA action date for the client's grant category, rather than the raw grant-type indicator stored by the payment system. Old age grant clients (grant day 10), disability grant clients (grant day 12), and all-pay grant clients (grant day 14) will now see the correct calendar date on which SASSA will action their first deduction.
 
----
+***
 
 ## 4.84.03 – Origination Controls, Insurance Accuracy & Document Improvements
 
 _Released: 2026-06-14_
 
-This release introduces **Next Loan Options** — per-client origination control flags that let branch staff specify which checks must be re-confirmed or re-run the next time a specific client applies for a loan, without affecting any other clients. The seven-language NCA terms and conditions viewer (Loan Agreement, Income Declaration, and Settlement Letter T&Cs in English, Afrikaans, Zulu, Xhosa, Sotho, Tsonga, and Tswana) is now available to users with tool right 10 from the main menu. Credit life insurance on short-term transaction products now uses the same daily rate methodology as loan interest, device enrollment links no longer show a 1970 expiry date, and the Client Ledger instalment date column now shows the correct schedule date for each receipt rather than the capture date. Also included are GuardRisk contract PDF layout improvements, lifetime premium columns for UnitySure insurance reporting, corrected payer and repayer recording on future-dated AllPS payouts, and reliability improvements to SMS batch delivery.
+This release introduces **Next Loan Options** — per-client origination control flags that let branch staff specify which checks must be re-confirmed or re-run the next time a specific client applies for a loan, without affecting any other clients. The seven-language NCA terms and conditions viewer (Loan Agreement, Income Declaration, and Settlement Letter T\&Cs in English, Afrikaans, Zulu, Xhosa, Sotho, Tsonga, and Tswana) is now available to users with tool right 10 from the main menu. Credit life insurance on short-term transaction products now uses the same daily rate methodology as loan interest, device enrollment links no longer show a 1970 expiry date, and the Client Ledger instalment date column now shows the correct schedule date for each receipt rather than the capture date. Also included are GuardRisk contract PDF layout improvements, lifetime premium columns for UnitySure insurance reporting, corrected payer and repayer recording on future-dated AllPS payouts, and reliability improvements to SMS batch delivery.
 
 ### 🚀 New Features
 
@@ -100,11 +111,11 @@ This release introduces **Next Loan Options** — per-client origination control
 **Who is affected:** Branch operators with client maintenance rights. The Next Loan button appears on the Client Menu for repeat-loan clients. Options clear automatically once the corresponding origination step is completed.
 {% endhint %}
 
----
+***
 
-#### NCA Document T&C Translations — 7-Language Viewer
+#### NCA Document T\&C Translations — 7-Language Viewer
 
-**What changed:** A new **Document Translations** tool is now available to users with tool right 10. It provides a read-only viewer for the legally required NCA terms and conditions documents — Loan Agreement T&Cs, Income Declaration T&Cs, and Settlement Letter T&Cs — in all seven scheduled South African languages: English, Afrikaans, Zulu, Xhosa, Sotho, Tsonga, and Tswana.
+**What changed:** A new **Document Translations** tool is now available to users with tool right 10. It provides a read-only viewer for the legally required NCA terms and conditions documents — Loan Agreement T\&Cs, Income Declaration T\&Cs, and Settlement Letter T\&Cs — in all seven scheduled South African languages: English, Afrikaans, Zulu, Xhosa, Sotho, Tsonga, and Tswana.
 
 {% hint style="info" %}
 **Why it matters:** The National Credit Act requires that clients can access these documents in their preferred official language. The viewer provides a compliant, shareable format for all three document types in all seven languages without requiring separate document storage or external translation services.
@@ -112,7 +123,7 @@ This release introduces **Next Loan Options** — per-client origination control
 **Who is affected:** Branch staff and compliance administrators with tool right 10. The viewer is accessible from the main menu and generates a formatted HTML document that can be shared or printed.
 {% endhint %}
 
----
+***
 
 ### 🛠️ Improvements & Fixes
 
@@ -152,7 +163,7 @@ A daily validation run now checks stored AllPS GUIDs across system instances at 
 
 SMS sending through Sudonum now applies rate limiting and retry logic, preventing batch SMS operations from triggering 429 (too-many-requests) errors from the SMS gateway. Batch SMS jobs are staggered automatically to stay within provider limits.
 
----
+***
 
 ## 4.84.01 – Compliance, Payroll & Reliability Improvements
 
