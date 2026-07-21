@@ -2,7 +2,6 @@
 
 ## App Version 4.8
 
-* [4.85 Release notes](README.md)
 * [4.85.00 Release notes](app-version-4.8/4.85.md)
 * [4.84.05 Release notes](app-version-4.8/4.84.md)
 * [4.83 Release notes](app-version-4.8/4.83.md)
