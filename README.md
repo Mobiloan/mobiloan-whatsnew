@@ -4,7 +4,7 @@
 
 _Released: 2026-07-27_
 
-4.86.00 is a consolidated release for your branches covering everything shipped since **4.85.00** (21 July 2026). Headline additions are a **digital bank statement waiver on Documents**, **early restore for archived duplicate users**, **validation and field-length guardrails while typing** (MAS-354 / MAS-363), **Setup & maintenance polish** (MOB-909 Phase 4), and clearer **loan agreement instalment schedule** labels. This release also improves origination reliability, Allps promissory date handling, Bengil credit life reporting, payroll remittance totals, and — in the July patch on the same version line — **BI dashboard horizontal scroll** and **CloudCode auth outside South Africa**.
+4.86.00 is a consolidated release for your branches covering everything shipped since **4.85.00** (21 July 2026). Headline additions are a **digital bank statement waiver on Documents**, **early restore for archived duplicate users**, **validation and field-length guardrails while typing** (MAS-354 / MAS-363), **Setup & maintenance polish** (MOB-909 Phase 4), and clearer **loan agreement instalment schedule** labels. This release also improves origination reliability, Allps promissory date handling, Bengil credit life reporting, payroll remittance totals, **BI dashboard horizontal scroll** on narrow screens, and **CloudCode authentication** for operators outside South Africa.
 
 ### 🚀 New Features
 
@@ -104,11 +104,11 @@ _Released: 2026-07-27_
 
 * **Bengil Credit Life Insurance** export now includes loans receipted in the period even when no scheduled transaction falls on those dates (Metrofin parity with Report 74)
 * **Payroll Remittance / Batch Receipt** totals refresh after Client Ledger without re-login; excluded instalments no longer inflate confirm amounts
+* **BI dashboard — horizontal scroll on narrow screens** — on **Reporting → BI dashboard**, chart cards on the right (e.g. **Loan Composition**) are no longer clipped on tablets or narrow desktop windows. Swipe or drag horizontally inside the dashboard to reach all charts. Vertical scroll stays on the page — not duplicated inside the chart area. No new rights or filters.
 
-#### July 2026 patch (same 4.86.00 line — no version bump)
+#### CloudCode & background tasks
 
-* **BI dashboard — horizontal scroll on narrow screens (MOB-942)** — on **Reporting → BI dashboard**, chart cards on the right (e.g. **Loan Composition**) are no longer clipped on tablets or narrow desktop windows. Swipe or drag horizontally inside the dashboard to reach all charts. Vertical scroll stays on the page — not duplicated inside the chart area. No new rights or filters.
-* **CloudCode — false “Token expired” outside South Africa (MOB-815)** — operators or devices outside **SAST** (or with a non-SA device timezone) no longer get false **Token expired. Check device time** on APP-sourced CloudCode tasks when the device clock is correct. **Deploy requires mobile and CloudCode `shared` together** — partial deploy breaks CloudCode auth for all users until both sides match.
+* **False “Token expired” outside South Africa** — operators or devices outside **SAST** (or with a non-SA device timezone) no longer get false **Token expired. Check device time** on APP-sourced CloudCode tasks (reports, origination CloudCode steps, etc.) when the device clock is correct. Deploy mobile **`app.js`** and CloudCode **`shared`** together — partial deploy breaks CloudCode auth for all users until both sides match.
 
 ***
 
@@ -121,6 +121,6 @@ _Released: 2026-07-27_
 | Field limits / clamps | Automatic on affected screens — no config toggle |
 | Loan agreement PDF labels | Regenerate via payout or recreator task |
 | BI dashboard scroll | No config — automatic after mobile deploy |
-| CloudCode auth fix (MOB-815) | Deploy mobile **`app.js`** + CloudCode **`shared`** together |
+| CloudCode auth (non-SA timezones) | Deploy mobile **`app.js`** + CloudCode **`shared`** together |
 
 Branches need no local install — the release is applied centrally. Force-close and reopen the app after deploy so schema and bundle changes sync cleanly.
