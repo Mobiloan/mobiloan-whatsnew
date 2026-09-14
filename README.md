@@ -1,44 +1,18 @@
-# 4.87 Release notes
+# 4.89 Release notes
 
-## 4.87.00 - Settlement Letters, Roles & Branch Workflow
+## 4.89.00 - Wallet/EFT commission choice and SACRRA Student Loans
 
-_Released: 2026-08-05_
+_Released: 2026-09-13_
 
-Mobiloan **4.87.00** builds on **4.86.00** (27 July 2026). Below is what your branches, agents, and administrators will notice — summarised for day-to-day use.
+Mobiloan **4.89.00** builds on **4.88.00** (9 September 2026). Below is what your branches, agents and administrators will notice — summarised for day-to-day use.
 
-**Before rollout:** review **Setup → Roles** for the permissions in the table at the end. After role changes, staff should fully close and reopen the app.
+**Before rollout:** review **Setup → Role** for the item in the table at the end. After role changes, staff should fully close and reopen the app.
 
-### 🚀 New Features
+### 🚀 New
 
-#### Role permissions (configure first)
+**Choose how wallet and EFT commission gets paid out** — If a role has **Payout agent commission** and/or **Payout broker commission**, you can now also give it **Pay wallet/EFT commission immediately** on **Setup → Role → Tools**. With that switched on, paying an agent's wallet or EFT commission offers **Pay now** or **Record for reconciliation**; without it, the payout stays **Record Commission**, exactly as before. An immediate payment still shows up on the next cashbox reconciliation for balancing — it just isn't paid through Allps a second time. Cash and payroll commission are unaffected; they were already paid immediately.
 
-**Reprint settlement letter** (new) — While a settlement letter is still **Active**, **Print settlement letter** is blocked unless the role has **Reprint settlement letter** (**Setup → Roles → Advanced Transaction Ledger**). With the right, staff confirm **Issue New Letter**; the previous letter moves to history as **Expired**.
-
-**Credit life premium zero** (new) — If credit life is required but the premium is **zero**, approval and payout stop until an authorised user signs off. Tick **Credit life expected on loan but premium calculated as zero** under **Authorise Active Loan Warnings**. **No role has this until you add it** — affected loans can block everyone until roles are updated.
-
-**Reattempt electronic payout** (existing — confirm who has it) — **Origination Rights → Reattempt unconfirmed electronic loan payout**. This release restores **Resubmit** and **Retry** prompts when EFT or wallet payout fails or has no clear response. Without the right, the loan is saved for an authorised user to reattempt.
-
-#### Settlement letters
-
-Letters show validity in **business days** (excluding weekends and public holidays) and the **expiry date** on the PDF. Set **Settlement letter expiry days** on **Setup → Configuration → Expiry** (default **5**; required before Configuration saves). On **Loan ledger → Balance current**, the **clock** icon opens **Settlement Letter History**; only the **active** letter opens its PDF.
-
-#### Origination and applications
-
-**Notes (N)** appears on loan applications when the client has notes, even with no prior loan. Optional **Force Check Client Notes Before Proceeding** (**Configuration → Alerts**) opens notes on load and on **Proceed** until **Notes Read** is tapped.
-
-**Online application SMS** — decline, amend, preapprove, and custom message templates are editable under **Configuration → SMS → SMS Templates** (preview on the application screen is read-only).
-
-**Compulsory credit life** on the product now locks credit life when the product requires it, not only when the insurer does.
-
-#### Ledgers and balancing
-
-Tap column headings to sort on **repayment schedule**, **client ledger summary**, and **billing invoice detail**; total and balance rows stay pinned. **Reconcile Transactions** shows **Reconciliations today** — tap the row for the list.
-
-***
-
-### 🛠️ Improvements & Fixes
-
-Affordability bank income behaves correctly for informal-only income and for SASSA / government pension when the category allows bank income above the grant. NCR shortfall updates when informal income changes without an extra **Calculate**. Counter-offer start date and first-month fees stay aligned when rebuilt. Electronic payout failures show clearer messages. Names and addresses are cleaned on save or as you type. Advanced reports show a clear message when a company has no linked branches. Loan menu summary scroll no longer covers row navigation. The automatic Mobidesk “report problem” prompt on connection failure is removed.
+**Report a loan product as a SACRRA Student Loan** — A loan product's **Product** tab now has a **Report as SACRRA student loan** toggle, visible to support users. Switch it on for a product whose loans should report to SACRRA as a Student Loan account instead of a Personal Loan account; every other product keeps reporting exactly as it does today.
 
 ***
 
@@ -46,11 +20,5 @@ Affordability bank income behaves correctly for informal-only income and for SAS
 
 | What to check | Where |
 | --- | --- |
-| Settlement letter validity days | **Setup → Configuration → Expiry** |
-| Who may reprint an active settlement letter | **Setup → Roles → Advanced Transaction Ledger → Reprint settlement letter** |
-| Who may approve zero credit life premium | **Setup → Roles → Authorise Active Loan Warnings** |
-| Who may reattempt failed electronic payouts | **Setup → Roles → Origination Rights → Reattempt unconfirmed electronic loan payout** |
-| Force notes before Proceed (optional) | **Setup → Configuration → Alerts** |
-| Online application SMS wording | **Setup → Configuration → SMS → SMS Templates** |
-
-Branches need no install — the release is applied centrally. After deploy, force-close and reopen the app (or log out and back in) so new settings and permissions sync cleanly.
+| Which roles may pay wallet/EFT commission immediately (optional) | **Setup → Role → Tools → Pay wallet/EFT commission immediately** |
+| Which loan products report to SACRRA as a Student Loan (support users) | **Setup → Loan Product → Product → Report as SACRRA student loan** |
