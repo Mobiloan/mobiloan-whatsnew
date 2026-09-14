@@ -2,6 +2,7 @@
 
 ## App Version 4.8
 
+* [4.89.00 Release notes](app-version-4.8/4.89.00.md)
 * [4.88.00 Release notes](app-version-4.8/4.88.00.md)
 * [4.87.00 Release notes](app-version-4.8/4.87.00.md)
 * [4.86.00 Release notes](app-version-4.8/4.86.00.md)
