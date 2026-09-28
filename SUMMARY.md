@@ -1,5 +1,9 @@
 # Table of contents
 
+## App Version 4.9
+
+* [4.90.00 Release notes](app-version-4.9/4.90.00.md)
+
 ## App Version 4.8
 
 * [4.89.00 Release notes](app-version-4.8/4.89.00.md)
