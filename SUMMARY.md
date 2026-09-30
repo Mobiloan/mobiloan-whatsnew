@@ -2,6 +2,7 @@
 
 ## App Version 4.9
 
+* [4.90.02 Release notes](app-version-4.9/4.90.02.md)
 * [4.90.01 Release notes](app-version-4.9/4.90.01.md)
 * [4.90.00 Release notes](app-version-4.9/4.90.00.md)
 
